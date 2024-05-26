@@ -1234,6 +1234,7 @@ Mode Widget_Halfedge_Mesh::ui(Mode current, const std::string& name, Undo& undo,
 	if (!mesh) return current;
 
 	if (Button("Edit")) current = Mode::model;
+
 	SameLine();
 	ui(name, undo, apply_to);
 
