@@ -7,32 +7,31 @@
 
 // A0T2: Problem 1
 // TODO: Uncomment the function below by removing the surrounding /* and */, and run in test mode.
-//       You will encounter compilation errors. Fix them, make sure all 
+//       You will encounter compilation errors. Fix them, make sure all
 //       compilation errors go away, and move onto the next problem.
 // Hint: there are 3 parts that need to be fixed.
 
-/*
-Test test_a0_task2_problems_print("a0.task2.problems.print", []() {
-    string str = "str";
+Test test_a0_task2_problems_print("a0.task2.problems.print", []()
+                                  {
+    std::string str = "str";
     int integer = 0;
     float flt = 0.1f;
 
 	// Most common ways of printing a line of text in Scotty3D are:
-    printf("\n1. printf with format specifiers such as string %s, interger %d, and float %f.\n", str.c_str(), integer, flt)
+    printf("\n1. printf with format specifiers such as string %s, interger %d, and float %f.\n", str.c_str(), integer, flt);
     
-    std::cour << "2. std::cout and std::endl with multiple insertion operators like " 
-              << str + ", " << integer << ", and " << flt << "." << std::endl;
-});
-*/
+    std::cout << "2. std::cout and std::endl with multiple insertion operators like " 
+              << str + ", " << integer << ", and " << flt << "." << std::endl; });
 
 // A0T2: Problem 2
-// TODO: We want to pass our target 2D vector through a filter called helper, 
-//       using the modifiers vector in the process. But for some reason, we 
-//       are seeing many more rejections from the filter run, causing more 
-//       zeroes to appear in our modified vector. Fix the problem to get 
+// TODO: We want to pass our target 2D vector through a filter called helper,
+//       using the modifiers vector in the process. But for some reason, we
+//       are seeing many more rejections from the filter run, causing more
+//       zeroes to appear in our modified vector. Fix the problem to get
 //       the correct filtered vector.
 
-Test test_a0_task2_problems_numerical("a0.task2.problems.numerical", []() {
+Test test_a0_task2_problems_numerical("a0.task2.problems.numerical", []()
+                                      {
     std::vector<std::vector<int>> target = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     std::vector<int> modifiers = {9, 8, 7, 15, 16, 17, 20, 25, 28};
 
@@ -55,16 +54,16 @@ Test test_a0_task2_problems_numerical("a0.task2.problems.numerical", []() {
     std::vector<std::vector<int>> expected = {{1, 2, 0}, {4, 5, 0}, {0, 8, 9}};
 
     if (Test::differs(target[0], expected[0]) || Test::differs(target[1], expected[1]) || Test::differs(target[2], expected[2]))
-        throw Test::error("The vector does not match the expected result.");
-});
+        throw Test::error("The vector does not match the expected result."); });
 
 // A0T2: Problem 3
 // TODO: Vectors are variable length arrays of C++. What could possibly be going
-//       wrong with this simple code? Fix the code while using iterators to 
+//       wrong with this simple code? Fix the code while using iterators to
 //       retrieve the correct last element of the vector.
 // Hint: Befriend C++ documentation websites
 
-Test test_a0_task2_problems_vector("a0.task2.problems.vector", []() {
+Test test_a0_task2_problems_vector("a0.task2.problems.vector", []()
+                                   {
     std::vector<int> one_to_ten;
 
     for (int i = 0; i < 10; i++) {
@@ -80,14 +79,14 @@ Test test_a0_task2_problems_vector("a0.task2.problems.vector", []() {
     if (last_element != expected) {
 		printf("Difference: %d", expected - last_element);
 		throw Test::error("The last element was not 10.");
-	}
-});
+	} });
 
 // A0T2: Problem 4
 // TODO: We want to count how many times a number appears in all three vectors.
 //       Find the reason why the function below reports a count too high and fix it.
 
-Test test_a0_task2_problems_boolean("a0.task2.problems.boolean", []() {
+Test test_a0_task2_problems_boolean("a0.task2.problems.boolean", []()
+                                    {
     std::vector<int> vec1, vec2, vec3;
 
     for (int i = 0; i < 20; i = i+1) vec1.emplace_back(i);
@@ -109,5 +108,4 @@ Test test_a0_task2_problems_boolean("a0.task2.problems.boolean", []() {
     if (count != expected) {
         printf("Expected : %d, Got : %d", expected, count);
         throw Test::error("Wrong number of triple occurences was found.");
-    }
-});
+    } });
